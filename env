@@ -1,0 +1,5 @@
+GRIST_API_KEY=a45c993c4728f029b93e3981d41f02c45e6392fb 
+GRIST_DOC_ID=vRYgHSJDc7Ve852irEgJuH
+N8N_WEBHOOK_URL = http://localhost:5678/webhook-test/issue-classified
+LLM_TASK =zero-shot-classification
+LLM_MODEL=facebook/bart-large-mnli
