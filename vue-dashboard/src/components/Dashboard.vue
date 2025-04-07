@@ -12,8 +12,29 @@
           </tr>
         </thead>
         <tbody>
-http://127.0.0.1:5000/grist-data");
-    // const response = await axios.get("/backend/grist-data");
+<tr v-for="(record, index) in records.records" :key="record.id">
+{{ record.id }}</td>
+            <td>{{ record.fields.CustomerName}}</td>
+            <td>{{ record.fields.Description }}</td>
+            <td>{{ record.fields.Status}}</td>
+            <td>
+                <button v-if="!record.fields.classification" @click="classifyIssue(record.fields, index)">Classify</button>
+                <span v-else> {{ record.fields.classification }}</span>
+            </td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+export default{
+    data(){
+    return {
+        records:[],
+    };
+        async mounted(){
     const response = await axios.get("/api/grist-data");
     this.records = response.data;
   },
